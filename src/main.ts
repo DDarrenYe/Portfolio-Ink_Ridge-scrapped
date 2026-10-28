@@ -5,6 +5,7 @@ import './styles/sections.css';
 import { renderContent } from './content/render';
 import { supportsWebGL } from './lib/webgl';
 import { addMist, addSun } from './scene/atmosphere';
+import { createCameraRig } from './scene/cameraRig';
 import { inkWashMaterial, syncCamera } from './scene/ridgeShader';
 import { addRidges } from './scene/ridges';
 import { createStage } from './scene/stage';
@@ -16,10 +17,12 @@ if (supportsWebGL()) {
   const stage = createStage(canvas);
   const ridges = addRidges(stage.scene, inkWashMaterial);
   const washes = ridges.map((r) => r.material);
-  addSun(stage.scene);
+  const sun = addSun(stage.scene);
   const mist = addMist(stage.scene);
-  stage.camera.lookAt(0, 2.6, -20);
+  const rig = createCameraRig(stage.camera);
   stage.onFrame((t) => {
+    rig.update();
+    sun.position.y = 7 + rig.progress() * 3;
     syncCamera(washes, stage.camera);
     mist.update(t, stage.camera.position.z);
   });

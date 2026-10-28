@@ -1,6 +1,6 @@
 # Ink Ridge
 
-Darren Ye's portfolio, styled as a Chinese ink-wash painting. Layers of sumi-e mountains recede behind the page, scrolling walks you into the range, and dragging across the paper lays down ink that bleeds along a slow current.
+Darren Ye's portfolio, styled as a Chinese ink-wash painting. Layers of sumi-e mountains recede behind the page, scrolling walks you into the range, and moving across the paper paints brush strokes that run dry into streaks.
 
 ![The hero: Darren Ye above ink-wash ridges and a red sun](docs/screenshot.png)
 
@@ -26,9 +26,9 @@ Everything a visitor reads about the work is in [`src/content/projects.ts`](src/
 | Ink wash | `src/scene/shaders/ridge.frag.glsl` | Ink pools at the ridge line and washes into mist below it, with dry-brush streaks. A layer fades out as the camera passes through it. |
 | Atmosphere | `src/scene/atmosphere.ts` | The seal-red sun and the mist bands between layers. |
 | Camera | `src/scene/cameraPath.ts`, `src/scene/cameraRig.ts` | Maps scroll progress to a walk 34 units into the range; the pointer leans the view. On phones the camera lifts so the ridges clear the stacked hero text. |
-| Ink trail | `src/ink/flow.ts`, `src/ink/inkCanvas.ts` | A 2D canvas of drops carried by a flow field. Each drop spreads and fades over about 80 frames. |
+| Brush | `src/ink/brush.ts`, `src/ink/inkCanvas.ts` | A brush of 14 bristles, each with its own ink. Slow strokes press wide, fast ones thin onto the tip, and pen pressure is used when there is one. The edge bristles run dry first, so long strokes break into dry-brush streaks. A pause lifts the brush and the next stroke is re-dipped. |
 
-Without WebGL the canvas is hidden and the page is still complete. With reduced motion turned on, the scene is drawn as a still that follows the scroll and the ink trail is off.
+Without WebGL the canvas is hidden and the page is still complete. With reduced motion turned on, the scene is drawn as a still that follows the scroll and the brush is off.
 
 ## Built with
 

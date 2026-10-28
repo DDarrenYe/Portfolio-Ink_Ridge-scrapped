@@ -1,2 +1,2 @@
-// Entry point. The page and the ink-wash scene are wired up here.
-export {};
+import './styles/tokens.css';
+import './styles/base.css';

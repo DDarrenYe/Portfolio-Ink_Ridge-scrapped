@@ -1,0 +1,18 @@
+/* Ink on paper: one warm-grey sheet, two inks, and the seal red used sparingly. */
+:root {
+  --paper: #ecebe6;
+  --paper-2: #e3e1d9;
+  --ink: #17171b;
+  --ink-2: #4c4c54;
+  --wash: #a9a8a3;
+  --seal: #b8322a;
+
+  --latin: "Gloock", "Didot", "Bodoni 72", Georgia, serif;
+  --cjk: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+
+  color-scheme: light;
+}

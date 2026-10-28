@@ -54,7 +54,8 @@ export function createStage(canvas: HTMLCanvasElement): Stage {
       const start = performance.now();
       let last = start;
       const loop = (now: number) => {
-        draw((now - start) / 1000, Math.min(0.05, (now - last) / 1000));
+        // skip work in a hidden tab; dt is clamped so the scene doesn't jump on return
+        if (!document.hidden) draw((now - start) / 1000, Math.min(0.05, (now - last) / 1000));
         last = now;
         requestAnimationFrame(loop);
       };

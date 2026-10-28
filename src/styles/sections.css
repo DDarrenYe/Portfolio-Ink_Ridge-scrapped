@@ -1,0 +1,86 @@
+section { display: grid; gap: 36px; }
+
+.section-head { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.section-head h2 { font-family: var(--latin); font-weight: 400; font-size: clamp(36px, 5vw, 56px); margin: 0; line-height: 1; }
+.section-head__cn { font-family: var(--cjk); font-size: 22px; color: var(--ink-2); }
+.section-head p { flex-basis: 100%; margin: 0; color: var(--ink-2); max-width: 40em; }
+
+/* Album leaves: each project mounted on its own sheet, title inscribed down the right edge */
+.leaves { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
+.leaf {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  min-width: 0;
+  padding: 28px 22px 24px 26px;
+  background: rgba(236, 235, 230, .86);
+  border: 1px solid rgba(23, 23, 27, .16);
+  box-shadow: 0 1px 0 rgba(23, 23, 27, .05), 0 24px 40px -32px rgba(23, 23, 27, .6);
+  backdrop-filter: blur(3px);
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+.leaf:hover { transform: translateY(-4px) rotate(-.4deg); }
+.leaf__body { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.leaf__page { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--seal); }
+.leaf h3 { font-family: var(--latin); font-weight: 400; font-size: 32px; margin: 0; line-height: 1; }
+.leaf p { margin: 0; font-size: 15px; color: var(--ink-2); line-height: 1.7; }
+.leaf__stack { font-size: 13px; letter-spacing: .03em; }
+.leaf a { font-size: 14px; text-underline-offset: 4px; text-decoration-color: var(--seal); }
+.leaf__cn {
+  writing-mode: vertical-rl;
+  font-family: var(--cjk);
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 1.05;
+  display: flex;
+  gap: 6px;
+  padding-left: 14px;
+  border-left: 1px solid rgba(23, 23, 27, .15);
+}
+.leaf__cn small { font-family: var(--body); font-weight: 400; font-size: 12px; letter-spacing: .14em; color: var(--ink-2); }
+
+.treasures {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: rgba(236, 235, 230, .8);
+}
+.treasure { padding: 26px 20px; display: grid; gap: 6px; align-content: start; min-width: 0; border-right: 1px solid rgba(23, 23, 27, .18); }
+.treasure:last-child { border-right: 0; }
+.treasure__glyph { font-family: var(--cjk); font-weight: 900; font-size: 64px; line-height: 1; }
+.treasure__py { font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--seal); }
+.treasure b { font-size: 17px; }
+.treasure span:last-child { font-size: 15px; color: var(--ink-2); }
+@media (max-width: 820px) {
+  .treasures { grid-template-columns: repeat(2, 1fr); }
+  .treasure:nth-child(2n) { border-right: 0; }
+  .treasure:nth-child(-n + 2) { border-bottom: 1px solid rgba(23, 23, 27, .18); }
+}
+
+.colophon {
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  background: rgba(236, 235, 230, .86);
+  border: 1px solid rgba(23, 23, 27, .16);
+}
+.colophon h2 { font-family: var(--latin); font-weight: 400; font-size: clamp(36px, 5vw, 56px); margin: 0 0 14px; line-height: 1; }
+.colophon p { margin: 0 0 14px; color: var(--ink-2); max-width: 34em; }
+.seal--lg { width: 132px; height: 132px; font-size: 52px; letter-spacing: -.04em; transform: rotate(-3deg); }
+@media (max-width: 640px) { .colophon { grid-template-columns: 1fr; } }
+
+.btn { display: inline-block; font-weight: 500; color: var(--paper); background: var(--ink); padding: 12px 22px; text-decoration: none; letter-spacing: .04em; }
+.btn:hover { background: var(--seal); }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--ink-2);
+  border-top: 1px solid rgba(23, 23, 27, .2);
+  padding-top: 16px;
+}

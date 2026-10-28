@@ -3,6 +3,7 @@ import './styles/base.css';
 import './styles/hero.css';
 import './styles/sections.css';
 import { renderContent } from './content/render';
+import { createInk } from './ink/inkCanvas';
 import { supportsWebGL } from './lib/webgl';
 import { addMist, addSun } from './scene/atmosphere';
 import { createCameraRig } from './scene/cameraRig';
@@ -11,6 +12,7 @@ import { addRidges } from './scene/ridges';
 import { createStage } from './scene/stage';
 
 renderContent();
+createInk(document.getElementById('ink') as HTMLCanvasElement)?.start();
 
 const canvas = document.getElementById('scene') as HTMLCanvasElement;
 if (supportsWebGL()) {

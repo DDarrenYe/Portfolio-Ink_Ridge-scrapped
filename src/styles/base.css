@@ -16,8 +16,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--seal); outline-
 
 h1, h2, h3 { text-wrap: balance; }
 
-/* The ink-wash scene sits behind the page */
-#scene { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+/* The ink-wash scene and the ink trail sit behind the page */
+#scene, #ink { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+#ink { pointer-events: none; }
 
 /* Paper fibre: a fixed noise layer over everything */
 .grain {

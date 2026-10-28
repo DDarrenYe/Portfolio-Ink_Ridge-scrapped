@@ -1,4 +1,4 @@
-import { BufferAttribute, BufferGeometry, Mesh, MeshBasicMaterial, type Material, type Scene } from 'three';
+import { BufferAttribute, BufferGeometry, Mesh, type Material, type Scene } from 'three';
 import { LAYERS, RIDGE_BOTTOM, layerParams, ridgeHeight } from './ridgeProfile';
 
 const SEGMENTS = 260;
@@ -27,8 +27,8 @@ function ridgeGeometry(layer: number): BufferGeometry {
   return geo;
 }
 
-export function addRidges(scene: Scene, material: (layer: number) => Material): Mesh[] {
-  const ridges: Mesh[] = [];
+export function addRidges<M extends Material>(scene: Scene, material: (layer: number) => M): Mesh<BufferGeometry, M>[] {
+  const ridges: Mesh<BufferGeometry, M>[] = [];
   for (let layer = 0; layer < LAYERS; layer++) {
     const mesh = new Mesh(ridgeGeometry(layer), material(layer));
     // nearer layers draw last so they paint over the ones behind
@@ -38,7 +38,3 @@ export function addRidges(scene: Scene, material: (layer: number) => Material): 
   }
   return ridges;
 }
-
-/** Flat grey silhouettes, lighter with distance */
-export const flatRidgeMaterial = (layer: number) =>
-  new MeshBasicMaterial({ color: 0x17171b, transparent: true, opacity: 0.85 - layer * 0.09 });
